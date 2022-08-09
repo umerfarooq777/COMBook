@@ -1,13 +1,16 @@
 
 h1.header{
 font-size: 2.5rem;
-font-family: 'Montserrat';
-font-weight: normal;
+/* font-family: 'Montserrat'; */
+font-weight: bold;
 color: var(--dark);
 text-align: center;
 margin: 2rem 0;
 }
-
+.Khata-header{
+        /* font-family: 'Montserrat'!important; */
+        font-weight: normal;
+}
 .wrapper{
 width: 90%;
 margin: 0 auto;
@@ -157,7 +160,7 @@ background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
 }
 
 .front .inner p{
-font-size: 2rem;
+font-size: 1.25rem;
 margin-bottom: 2rem;
 position: relative;
 color: #ffffffde;

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <title>COMBook | Ledger Balances</title>
+    <meta property="og:title" content="COMBook | Ledger Balances">
+    <meta name="keywords" content="combook, accounting software, acc, accounting, ledger, Trial Balance, Srilanka, Financial Position, Profit and loss, nimash eshan, githmi paranahewa, milan swantra, ashan tharaka, accounting srilanka, srilankan softwares">
+    <meta property="og:description" content="COMBook is an accounting software package developed by group Perfectly Balanced .COMBook is an web based application designed primarily for small to medium size businesses and enterprises. This software could be used to Report Ledger Balances record them in Trail Balance and, manage accounting books and to prepare financial statements and Profit and loss Comprehensive Statement">
+    <meta property="og:image" content="https://nimasheshan.tk/assets/img/projects/combook.png">
+    <meta property="og:site_name" content="combook.tk">
+    <meta property="og:url" content="https://combook.tk">
+    <meta property="og:type" content="website">
+    <meta name="description" content="COMBook is an accounting software package developed by group Perfectly Balanced .COMBook is an web based application designed primarily for small to medium size businesses and enterprises. This software could be used to Report Ledger Balances record them in Trail Balance and, manage accounting books and to prepare financial statements and Profit and loss Comprehensive Statement">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./transtb.css">
+    <link rel="shortcut icon" href="./img/icon.ico">
+    
+</head>
+
+<body>
+
+<script type="text/javascript">
+    setcolor();
+
+    function setcolor(){
+        let state = window.localStorage.getItem("state");
+        if(state==null) return
+        (state === "dark")? document.body.classList.add('dark'):document.body.classList.remove('dark');
+    }
+</script>
+
+        <!-- SIDEBAR -->
+        <section id="sidebar">
+            <a href="#" class="brand">
+                <i class='bx bxs-smile'></i>
+                <span class="text">KHAATA</span>
+            </a>
+            <ul class="side-menu top">
+                <li>
+                    <a href="./index.html">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="records.html" class="active">
+                        <i class='bx bxs-shopping-bag-alt'></i>
+                        <span class="text">Add Records</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./trans.html">
+                        <i class='bx bxs-shopping-bag-alt'></i>
+                        <span class="text">Ledger Balancess</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./tb.html">
+                        <i class='bx bxs-doughnut-chart'></i>
+                        <span class="text">Trial Balance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./PnL.html">
+                        <i class='bx bxs-credit-card'></i>
+                        <span class="text">Profit & Loss</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./fps.html">
+                        <i class='bx bxs-bank'></i>
+                        <span class="text">Financial Positions</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="side-menu">
+                <li>
+                    <a href="./team.html">
+                        <i class='bx bxs-group'></i>
+                        <span class="text">Our Team</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="logout">
+                        <i class='bx bxs-log-out-circle'></i>
+                        <span class="text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- SIDEBAR -->
+
+
+
+        <!-- CONTENT -->
+        <section id="content">
+            <!-- NAVBAR -->
+            <nav>
+                <i class='bx bx-menu'></i>
+                <a href="#" class="nav-link">Categories</a>
+                <form action="#">
+                    <div class="form-input">
+                        <input type="search" placeholder="Search...">
+                        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+                <input type="checkbox" id="switch-mode" hidden>
+                <label for="switch-mode" class="switch-mode"></label>
+                <a href="#" class="notification">
+                    <i class='bx bxs-bell'></i>
+                    <span class="num">8</span>
+                </a>
+                <a href="#" class="profile">
+                    <img src="img/people.png">
+                </a>
+            </nav>
+            <!-- NAVBAR -->
+
+            <!-- MAIN -->
+            <main>
+                <div class="head-title">
+                    <div class="left">
+                        <h1>Ledger Balancess</h1>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li><i class='bx bx-chevron-right'></i></li>
+                            <li>
+                                <a class="active" href="#">Ledger Balancess</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="table-data">
+                    <div class="order">
+                        <div class="head">
+                            <h3>Update Your Ledger Balancess</h3>
+                            <i class='bx bx-search'></i>
+                            <i class='bx bx-filter'></i>
+                        </div>
+
+                        <!--rose                    Local Storage area-->
+                        <!-- here update the journals -->
+                        <form id="updateForm">
+                            <label >Date & Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="datetime-local" id="pdate" style="width: 200px; padding: 5px;"><br><br>
+
+                            <label for="tbtype" >Select the type</label>&nbsp;&nbsp;
+                            <select name="tbtype" id="ptbtype">
+                                <option value="">Select The Type</option>
+                                <option value="asset">Asset</option>
+                                <option value="expense">Expense</option>
+                                <option value="capital">Capital</option>
+                                <option value="income">Income</option>
+                                <option value="liability">Liability</option>
+                            </select><br><br>
+                            
+                            <div class="hide-for-exp">
+                                <label for="expense" class="" >Expenses Type</label>&nbsp;&nbsp;
+                                <select name="et" class="ex-type" id="expense">
+                                    <option value="" selected="selected">Select Option</option>
+                                    <option value="ad-ex">Administrative Expenses</option>
+                                    <option value="dns-ex">Distributing and Selling Expenses</option>
+                                    <option value="f-ex">Financial Expenses</option>
+                                    <option value="cos-ex">Cost Of sales</option>
+                                    <option value="o-ex">Other Expenses</option>
+                                </select><br><br>
+                            </div>
+
+                            <div class="hide-for-ass">
+                                <label for="asset" class="" >Asset Type</label>&nbsp;&nbsp;
+                                <select name="at" class="ass-type" id="asset">
+                                    <option value="" selected="selected">Select Option</option>
+                                    <option value="c-as">Current Asset</option>
+                                    <option value="nc-as">Non Current Asset</option>
+                                </select><br><br>
+                            </div>
+
+                            <div class="hide-for-liab">
+                                <label for="liab" class="" >Liability Type</label>&nbsp;&nbsp;
+                                <select name="lt" class="liab-type" id="liab">
+                                    <option value="" selected="selected">Select Option</option>
+                                    <option value="c-lia">Current Liability</option>
+                                    <option value="nc-lia">Non Current Liability</option>
+                                </select><br><br>
+                            </div>
+
+                            <label for="pcr">Credit or Debit?</label>&nbsp;&nbsp;
+                            <select name="cr" id="pcr">
+                                <option value="credit">Credit</option>
+                                <option value="debit">Debit</option>
+                            </select><br><br>
+
+                            <label for="pdesc" >Accounting Title</label><br>
+                            <textarea id="pdesc" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+
+                            <label for="pqty" >Total Amount (Rs)</label>&nbsp;
+                            <input type="number" id="pqty" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
+
+                            <button type="button" id="submit" >ADD to Trial Balance</button><br><br>
+                        </form>
+                            <button class="red adj">Show Adjustments</button>
+                        <br><br>
+                    </div>
+
+                    <div class="todo">
+                        <div class="head">
+                            <h3>Adjustments</h3>
+                            <i class='bx bx-plus'></i>
+                            <i class='bx bx-filter'></i> 
+                        </div>
+
+                        <!--rose             Adjustments area-->
+                        
+                        <label for="tbtype">Select the type</label>&nbsp;&nbsp;
+                        <select id="tbtype" class="tbtype">
+                            <option>Please Select The Option</option>
+                            <option value="accu">Accruals</option>
+                            <option value="prepay">Prepayments</option>
+                            <option value="inrec">Income Receivables</option>
+                            <option value="inad">Income Received In Advance</option>
+                            <option value="baddebt">Bad Debt</option>
+                            <!-- <option value="prodebt">Provision For Doubtfull Debt</option>
+                            <option value="deprec">Depreciation</option> -->
+                        </select><br><br>
+
+                        <!--blue                                Tooggle option area-->
+                        <!--green     accrual-->
+                        <div class="accu-area adjhide">
+                            <hr><br>
+                            <h1>Accruals</h1><br>
+                            <form action="" id="accrual">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id="ID_accrual" type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea name="" id="textarea_accrual" placeholder="Please write Account description" style="width: 398px; height: 38px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much is your arrears amount for this period?</label>&nbsp;
+                                <input id="Amount_accrual" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+
+                                <!-- <br><br><p><i>Eg: electricity expense wala 16000k gewanna one eka 12000k gewala thamai mu trial balance dala thiyenne(12000).</i><br>  Row Id eken electricity expence walata adala ID eka gannawa. accounting title eken ELECTRICITY kiyana eka gannawa. ammount eken higa mudala gannwa(4000)- eka update wenawa financial positions wala CURRENT LIABILITIES wala ACCRUED EXPENSE kiyana thana. mulu mudala (16000) update wenawa P&L eke expenses wala (expense type ekata adala thana).</p> -->
+                                <br><br><br>
+                                <button type="button" id="accrual_btn">ADD to Statements</button><br><br>
+
+                            </form>
+                        </div>
+
+                        <!--green     prepayments-->
+                        <div class="prepay-area adjhide">
+                            <hr><br>
+                            <h1>Prepayments</h1><br>
+                            <form action="" id="prepayments">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id="ID_prepayment" type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea name="" id="textarea_prepayment" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much have you overpaid?</label>&nbsp;
+                                <input id="Amount_prepayment" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                                <br><br><br>
+
+                                <button type="button" id="prepayments_btn">ADD to Statements</button><br><br>
+                            </form>
+                        </div>
+
+                        <!--green     Income Receivables-->
+                        <div class="inrec-area adjhide">
+                            <hr><br>
+                            <h1>Income Receivables</h1><br>
+                            <form action="" id="receivables">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_receivables" type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
+
+
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_receivables" name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much more do you need to receive?</label>&nbsp;
+                                <input id = "Amount_receivables" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+
+                                <!-- <br><br><p><i>Eg: samangen apita rent income eka enawa 10000, but thawa 5000k ugen labenna one</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. mulu amount eka 15000 danawa P&L eke income ekata. labenna one 5000 financial position eke CURRENT ASSET eke rent income receivable walata danawa</p> -->
+                                <br><br><br>
+
+                                <button type="button" id="Receivables_btn" >ADD to Statements</button><br><br>
+
+                            </form>
+                        </div>
+
+                        <!--green     income received in advance-->
+                        <div class="inad-area adjhide">
+                            <hr><br>
+                            <h1>Income Received In Advance</h1><br>
+                            <form action="" id="advance">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_advance" type="text" placeholder="ID" style="width: 120px; padding: 5px;"><br><br>
+
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_advance" name="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >How much income did you receive in advance?</label>&nbsp;
+                                <input id = "Amount_advance" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+
+                                <!-- <br><br><p><i>Eg: nimalgen apita rent income eka enawa 25000, but enna one gana 20000. u wadiyen 5000k gewala</i><br> Row Id eken rent income walata adala ID eka gannawa. accounting title eken RENT INCOME kiyana eka gannawa. P&L eke enna one 20000 INCOME ekta danawa. financial position eke ara wadiyen apita deepu 5000 CURRENT LIABILITY wala danawa</p> -->
+                                <br><br><br>
+
+                                <button type="button" id="advance_btn">ADD to Statements</button><br><br>
+
+                            </form>
+                        </div>
+
+                        <!--green     bad debts-->
+                        <div class="baddebt-area adjhide">
+                            <hr><br>
+                            <h1>Bad debts</h1><br>
+                            <form action="" id="debts">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input id = "ID_debts" type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+
+                                <label >Accounting Title</label><br>
+                                <textarea id = "textarea_debts" name="" id="" placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >What is the amount of Bad Debt?</label>&nbsp;
+                                <input id = "Amount_debts" type="number" placeholder="Amount" style="width: 243px; padding: 5px;">
+                                <!-- <br><br><p><i>kasunita denawa 55000 loan ekak. eunata eyata gewanna puluwan kiyala hithenne 50000. ithiri 5000 bad debts walata danawa </i><br> Row Id eken loan ekata adala ID eka gannawa. accounting title eken Bad Debt kiyana eka gannawa. amount eken ara 5000 gannawa -> e 5000 update karanawa P&L eke bad dept wala ara expense type ekata adala thana. Financial position eke current assest kiyana eken adu karanawa e 5000</p> -->
+                                <br><br><br>
+
+                            </form>
+                        </div>
+
+                        <!--green     Provision for doubtful debts-->
+                        <!-- <div class="prodebt-area adjhide">
+                            <hr><br>
+                            <h1>Provision For Doubtful Debts</h1><br>
+                            <form action="">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+                                <label >Credit or Debit?</label>&nbsp;&nbsp;
+                                <select name="cr">
+                                    <option value="credit">Credit</option>
+                                    <option value="debit">Debit</option>
+                                </select><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >Total Amount (Rs)</label>&nbsp;
+                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
+                                <button>ADD to Financial Statements</button><br><br>
+                            </form>
+                        </div> -->
+
+                        <!--green     depreciation-->
+                        <!-- <div class="deprec-area adjhide">
+                            <hr><br>
+                            <h1>Depreciation</h1><br>
+                            <form action="">
+                                <label >Select your Trial Balance Row ID</label>&nbsp;&nbsp;&nbsp;
+                                <input type="text" placeholder="ID" style="width: 43px; padding: 5px;"><br><br>
+                                <label >Credit or Debit?</label>&nbsp;&nbsp;
+                                <select name="cr">
+                                    <option value="credit">Credit</option>
+                                    <option value="debit">Debit</option>
+                                </select><br><br>
+                                <label >Accounting Title</label><br>
+                                <textarea name=""  placeholder="Please write Account description" style="width: 398px; height: 76px;resize: none;font-size: 15px; padding: 5px;"></textarea><br><br>
+                                <label >Total Amount (Rs)</label>&nbsp;
+                                <input type="number" placeholder="Amount" style="width: 243px; padding: 5px;"><br><br><br>
+                                <button>ADD to Financial Statements</button><br><br>
+                            </form>
+                        </div> -->
+
+                        <button class="red adjhideall">Hide Adjustments</button>
+                    </div>
+
+                    <div class="head-title">
+                        <!--//green      Tb Table goes here-->
+                        <div class="table-data">
+                            <div class="order">
+                                <div class="head">
+                                    <h3>Recent Updates</h3>
+                                    <i class='bx bx-search'></i>
+                                    <i class='bx bx-filter'></i>
+                                </div>
+                                <table id="recordTable">
+                                    <thead>
+                                        <tr>
+                                            <th id="id-tb">ID</th>
+                                            <th>Date & Time</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                            <th class="update-desc">Description</th>
+                                            <th>Amount (Rs)</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="root">
+<!--                                        <tr>-->
+<!--                                            <td>1</td>-->
+<!--                                            <td>01-10-2021</td>-->
+<!--                                            <td>Assest</td>-->
+<!--                                            <td>Debit</td>-->
+<!--                                            <td>purchased 100kg of sugar</td>-->
+<!--                                            <td>200340.00</td>-->
+<!--                                            <td ><a href="">Delete</a></td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>2</td>-->
+<!--                                            <td>01-10-2021</td>-->
+<!--                                            <td>Income</td>-->
+<!--                                            <td>Credit</td>-->
+<!--                                            <td>Rent received</td>-->
+<!--                                            <td>100340.00</td>-->
+<!--                                            <td ><a href="">Delete</a></td>-->
+<!--                                        </tr>-->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+
+        </section>
+        <!-- CONTENT -->
+
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script src="script.js"></script>
+        <script src="firebase.js"></script>
+        <script src="./jquery-3.6.0.min.js"></script>
+        <script src="./trans.js"></script>
+</body>
+
+</html>
